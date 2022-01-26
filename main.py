@@ -32,6 +32,10 @@ class WidgetsExample(GridLayout):
 	
 	def on_switch_active(self, widget):
 		print(widget.active)
+
+	def on_slider_value(self, widget):
+		print(widget.value)
+		
 		
 
 
