@@ -6,8 +6,12 @@ from kivy.uix.gridlayout import GridLayout
 
 from kivy.uix.button import Button
 
+
+
 class AnchorLayoutExample(AnchorLayout):
 	pass
+
+
 
 # class GridLayoutExample(GridLayout):
 # 	pass
