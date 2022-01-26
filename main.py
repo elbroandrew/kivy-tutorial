@@ -20,6 +20,9 @@ class WidgetsExample(GridLayout):
 	def on_button_click(self):
 		self.count += 1
 		self.my_text = str(self.count)
+	
+	def on_toggle_button_state(self):
+		print('toggle state')
 		
 
 
