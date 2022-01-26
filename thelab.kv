@@ -7,7 +7,7 @@ WidgetsExample:
 	cols: 3
 	ToggleButton:
 		text: "toggle"
-		on_state: root.on_toggle_button_state()
+		on_state: root.on_toggle_button_state(self)
 	Button:
 		text: "Click here"
 		on_press: root.on_button_click()	# root means WidgetsExample iself, we don't use 'self' here.
