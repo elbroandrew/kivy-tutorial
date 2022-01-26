@@ -33,8 +33,15 @@ WidgetsExample:
 		orientation: "vertical"
 		# on_value: root.on_slider_value(self)
 		disabled: not my_switch.active
-	Label:
-		text: str(int(my_slider.value))
+	BoxLayout:
+		orientation: "vertical"
+		Label:
+			text: str(int(my_slider.value))
+		ProgressBar:
+			max: 100
+			# min value is always 0, cannot be changed.
+			value: my_slider.value
+
 
 
 
