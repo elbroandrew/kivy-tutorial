@@ -1,3 +1,4 @@
+from cgitb import text
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.uix.boxlayout import BoxLayout
@@ -9,7 +10,11 @@ from kivy.uix.button import Button
 
 
 class StackLayoutExample(StackLayout):
-	pass
+	def __init__(self, **kwargs):
+		super().__init__(**kwargs)
+		b = Button(text="Z", size_hint=(0.2, 0.2))
+		self.add_widget(b)
+
 
 
 
