@@ -8,6 +8,8 @@ WidgetsExample:
 	ToggleButton:
 		text: "toggle"
 		on_state: root.on_toggle_button_state(self)
+		size_hint: None, 1
+		width: "100dp"
 	Button:
 		text: "Click here"
 		on_press: root.on_button_click()	# root means WidgetsExample iself, we don't use 'self' here.
