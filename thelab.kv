@@ -1,12 +1,22 @@
 #:kivy 1.0
-ScrollViewExample:
+PageLayoutExample:
+# this defines a main interface
+
+
+
+<PageLayoutExample@PageLayout>:
+	MainWidget:
+	BoxLayoutExample:
+	AnchorLayoutExample:
+	GridLayoutExample:
+
 
 
 <ScrollViewExample@ScrollView>:
 	StackLayoutExample:
 		# scroll vert
 		size_hint: 1, None
-		# works in stak lay out
+		# works in stack lay out
 		height: self.minimum_height
 
 
