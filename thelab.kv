@@ -1,6 +1,15 @@
 #:kivy 1.0
-PageLayoutExample:
+WidgetsExample:
 # this defines a main interface
+
+
+<WidgetsExample>:
+	cols: 3
+	Button:
+		text: "Click here"
+		on_press: root.on_button_click()	# root means WidgetsExample iself, we don't use 'self' here.
+	Label:
+		text: "Hello"
 
 
 

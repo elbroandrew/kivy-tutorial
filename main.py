@@ -12,6 +12,9 @@ from kivy.uix.scrollview import ScrollView
 from kivy.uix.button import Button
 
 
+class WidgetsExample(GridLayout):
+	def on_button_click(self):
+		
 
 
 
