@@ -12,8 +12,9 @@ from kivy.uix.button import Button
 class StackLayoutExample(StackLayout):
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)
-		b = Button(text="Z", size_hint=(0.2, 0.2))
-		self.add_widget(b)
+		for i in range(0, 10):
+			b = Button(text="{}".format(i + 1), size_hint=(0.2, 0.2))
+			self.add_widget(b)
 
 
 
