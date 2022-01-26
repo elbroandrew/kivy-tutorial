@@ -14,8 +14,8 @@ from kivy.uix.button import Button
 
 
 class WidgetsExample(GridLayout):
-	сщгте = 1
-	my_text = StringProperty("1!")
+	count = 1
+	my_text = StringProperty("1")
 
 	def on_button_click(self):
 		self.count += 1
