@@ -16,7 +16,7 @@ from kivy.uix.button import Button
 class WidgetsExample(GridLayout):
 	my_text = StringProperty("Hello!")
 	def on_button_click(self):
-		print('clicked')
+		self.my_text = "Click"
 
 
 
