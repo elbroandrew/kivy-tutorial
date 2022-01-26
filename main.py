@@ -2,31 +2,33 @@ from cgitb import text
 from kivy.app import App
 from kivy.metrics import dp
 from kivy.uix.widget import Widget
-from kivy.properties import StringProperty
+from kivy.properties import StringProperty, BooleanProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.stacklayout import StackLayout
 from kivy.uix.scrollview import ScrollView
-
-
 from kivy.uix.button import Button
 
 
 class WidgetsExample(GridLayout):
 	count = 1
 	my_text = StringProperty("1")
+	count_enabled = BooleanProperty(False)
 
 	def on_button_click(self):
-		self.count += 1
-		self.my_text = str(self.count)
+		if self.count_enabled:
+			self.count += 1
+			self.my_text = str(self.count)
 	
 	def on_toggle_button_state(self, widget):
 		print('toggle state' + widget.state)
 		if widget.state == "normal":
 			widget.text = "OFF"
+			self.count_enabled = False
 		else:
 			widget.text = "ON"
+			self.count_enabled = True
 		
 
 
