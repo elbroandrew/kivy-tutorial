@@ -13,6 +13,7 @@ WidgetsExample:
 	BoxLayout:
 		orientation: "horizontal"
 		ToggleButton:
+			id: toggle_button
 			text: "show answer"
 			font_size: "20dp"
 			size_hint: 1, None
@@ -23,7 +24,7 @@ WidgetsExample:
 			font_size: "20dp"
 			size_hint: 1, None
 			height: "45dp"
-			on_press: root.on_button_click()
+			on_press: root.on_button_click(toggle_button)
 
 
 	Label:

@@ -7,11 +7,12 @@ from kivy.uix.gridlayout import GridLayout
 class WidgetsExample(GridLayout):
 	answer = "text text text text text text text text text"
 	my_text = StringProperty("answer")
+ 	# toggle_button = 
 	
 
-	def on_button_click(self):
-		print("next definition")
+	def on_button_click(self, toggle_button):
 		self.my_text = ''
+		toggle_button.state = "normal"
     
 	def on_toggle_button_state(self, widget):
 		if widget.state == "normal":
