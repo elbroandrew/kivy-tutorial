@@ -1,189 +1,24 @@
 #:kivy 1.0
-ImagesExample:
-# this defines a main interface
+WidgetsExample:
 
-<ImagesExample@GridLayout>:
-	cols: 3
-	Image:
-		source: "images/cake.jpg"
-	Image:
-		source: "images/cake.jpg"
-		allow_stretch: True
-	Image:
-		source: "images/cake.jpg"
-		keep_ratio: False
-		allow_stretch: True
 
 <WidgetsExample>:
-	cols: 3
+	cols: 1
+	rows: 3
+
+	Label:
+		text: "definition"
+		font_size: "20dp"
+
 	ToggleButton:
-		text: "toggle"
+		text: "show answer"
 		on_state: root.on_toggle_button_state(self)
-		size_hint: None, 1
-		width: "100dp"
-	Button:
-		text: "Click here"
-		on_press: root.on_button_click()	# root means WidgetsExample iself, we don't use 'self' here.
-		disabled: not root.count_enabled
+		font_size: "20dp"
+		size_hint: 1, None
+		height: "45dp"
 	Label:
 		text: root.my_text
-		font_name: "fonts/LCD Normal.ttf"
-		font_size: "80dp"
+		font_size: "30dp"
 		color: 1, 0.5, 1
-	Switch:
-		id: my_switch
-		on_active: root.on_switch_active(self)
-		size_hint: None, 1
-		width: "100dp"
-		active: True
-	Slider:
-		id: my_slider
-		min: 0
-		max: 100
-		value: 50
-		orientation: "vertical"
-		# on_value: root.on_slider_value(self)
-		disabled: not my_switch.active
-	BoxLayout:
-		orientation: "vertical"
-		Label:
-			text: str(int(my_slider.value))
-		ProgressBar:
-			max: 100
-			# min value is always 0, cannot be changed.
-			value: my_slider.value
-	TextInput:
-		id: my_text_input
-		size_hint: None, 1
-		width: "100dp"
-		text: "foo"
-		multiline: False
-		on_text_validate: root.on_text_validate(self)
-	Label:
-		text: "Your name is " + root.text_input_str
 
 
-
-
-<PageLayoutExample@PageLayout>:
-	MainWidget:
-	BoxLayoutExample:
-	AnchorLayoutExample:
-	GridLayoutExample:
-
-
-
-<ScrollViewExample@ScrollView>:
-	StackLayoutExample:
-		# scroll vert
-		size_hint: 1, None
-		# works in stack lay out
-		height: self.minimum_height
-
-
-
-<StackLayoutExample>:
-	# left-right top-bottom
-	# orientation: "rl-tb"
-
-	# padding clockwise
-	# padding: ("20dp", "20dp", "20dp", "20dp")
-
-	# spacing horiz vert
-	# spacing: "20dp", "30dp"
-
-
-
-
-<GridLayoutExample@GridLayout>:
-
-	# rows
-	# cols
-	rows: 2
-
-	Button:
-		text: "A"
-		size_hint: None, 1
-		width: "50dp"
-
-	BoxLayout:
-        orientation: "vertical"
-		spacing: "10dp"
-        Button:
-            text: "B"
-		Button:
-            text: "B"
-		Button:
-            text: "B"
-		Button:
-            text: "B"
-
-	Button:
-		text: "C"
-	Button:
-		text: "D"
-		size_hint: None, 1
-		width: "50dp"
-	Button:
-		text:"E"
-
-	Button:
-		text: "F"
-
-
-
-
-
-
-<AnchorLayoutExample>:
-	# right, left, center
-	anchor_x: "right"
-	# bottom, top, center
-	# anchor_y
-	Button:
-		text: "F"
-		size_hint: 0.1, 0.1
-
-
-<BoxLayoutExample>:
-    orientation: "horizontal"
-    Button:
-        text: "A"
-        size_hint: 0.5, 0.5
-        # size: "100dp", "200dp"
-        # height: "200dp"
-
-        # x, center_x, right
-        # y, center_y, top
-        # in percentage
-        pos_hint: {"x": 0.1}
-
-    BoxLayout:
-        orientation: "vertical"
-		spacing: "10dp"
-        Button:
-            text: "B"
-		Button:
-            text: "B"
-		Button:
-            text: "B"
-		Button:
-            text: "B"
-
-    Label:
-        text: "C"
-
-
-
-<MainWidget>:
-    Button:
-        text: "Hello"
-        size: "100dp", "80dp"
-        pos: "100dp", "200dp"
-        color: 0, 1, 0, 1
-
-    Label:
-        text: "Hello2"
-        size: "100dp", "80dp"
-        pos: "200dp", "200dp"
-        color: 1, 0, 0, 1
