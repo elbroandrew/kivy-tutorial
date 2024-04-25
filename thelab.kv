@@ -10,12 +10,22 @@ WidgetsExample:
 		text: "definition"
 		font_size: "20dp"
 
-	ToggleButton:
-		text: "show answer"
-		on_state: root.on_toggle_button_state(self)
-		font_size: "20dp"
-		size_hint: 1, None
-		height: "45dp"
+	BoxLayout:
+		orientation: "horizontal"
+		ToggleButton:
+			text: "show answer"
+			font_size: "20dp"
+			size_hint: 1, None
+			height: "45dp"			
+			on_state: root.on_toggle_button_state(self)
+		Button:
+			text: "next definition"
+			font_size: "20dp"
+			size_hint: 1, None
+			height: "45dp"
+			on_press: root.on_button_click()
+
+
 	Label:
 		text: root.my_text
 		font_size: "30dp"
