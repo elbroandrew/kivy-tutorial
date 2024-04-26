@@ -9,18 +9,17 @@ class WidgetsExample(GridLayout):
 	answer = "text text text text text text text text text"
 	my_text = StringProperty("answer")
 	
-	with Database() as db:
-		db.create_table()
-		db.insert()
-		res = db.fetch_all()
-		for r in res:
-			print(r)
-
-	
+	db = Database()
+	db.connect()
+	db.create_table()
+	db.insert()
 
 	def on_button_click(self, toggle_button):
 		self.my_text = ''
 		toggle_button.state = "normal"
+		res = self.db.fetch_all()
+		for r in res:
+			print(r)
     
 	def on_toggle_button_state(self, widget):
 		if widget.state == "normal":
@@ -34,6 +33,9 @@ class WidgetsExample(GridLayout):
 
 class TheLabApp(App):
     title = "Exercise app"
+    
+    def on_stop(self):
+        print("QUIT")
     
     
     
