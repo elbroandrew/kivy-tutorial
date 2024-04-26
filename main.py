@@ -2,12 +2,20 @@
 from kivy.app import App
 from kivy.properties import StringProperty, BooleanProperty
 from kivy.uix.gridlayout import GridLayout
+from sql_conn import Database
 
 
 class WidgetsExample(GridLayout):
 	answer = "text text text text text text text text text"
 	my_text = StringProperty("answer")
- 	# toggle_button = 
+	
+	with Database() as db:
+		db.create_table()
+		db.insert()
+		res = db.fetch_all()
+		for r in res:
+			print(r)
+
 	
 
 	def on_button_click(self, toggle_button):
@@ -25,7 +33,10 @@ class WidgetsExample(GridLayout):
 
 
 class TheLabApp(App):
-    pass 
+    title = "Exercise app"
+    
+    
+    
 
 
 if __name__ == "__main__":
