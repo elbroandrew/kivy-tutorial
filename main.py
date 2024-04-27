@@ -1,8 +1,11 @@
 
 from kivy.app import App
-from kivy.properties import StringProperty, BooleanProperty
+from kivy.properties import StringProperty
 from kivy.uix.gridlayout import GridLayout
 from sql_conn import Database
+from kivy.uix.popup import Popup
+from kivy.uix.label import Label
+from kivy.uix.button import Button
 
 
 class WidgetsExample(GridLayout):
@@ -30,11 +33,13 @@ class WidgetsExample(GridLayout):
     def on_text_validate(self, widget):
         '''saves text definition to DB'''
         pass
-
+    
+    def on_add_button_click(self):
+        pass
 
 
 class TheLabApp(App):
-    title = "Exercise app"
+    title = "Practice collocations"
     
     def on_start(self):
         self.db = Database()

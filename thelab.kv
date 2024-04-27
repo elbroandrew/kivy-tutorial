@@ -1,5 +1,28 @@
 #:kivy 1.0
+#:import Factory kivy.factory.Factory
 WidgetsExample:
+
+
+<MyPopup@Popup>
+    auto_dismiss: False
+	title: "Create examples and synonyms"
+	GridLayout:
+		rows: 2
+		cols: 2
+		padding: 10
+		spacing: 10
+		TextInput:
+			size_hint: None, 1
+			width: "200dp"
+			font_size: "20dp"
+			text: "example_1"
+			multiline: True
+		Button:
+			text: "add example_1"
+			font_size: "20dp"
+			size_hint: 1, None
+			height: "45dp"
+        	on_release: root.dismiss()
 
 
 <WidgetsExample>:
@@ -39,7 +62,7 @@ WidgetsExample:
 			size_hint: None, 1
 			width: "400dp"
 			font_size: "20dp"
-			text: "Please, enter your definition"
+			text: "Create new definition here that you want to practice"
 			multiline: True
 			on_text_validate: root.on_text_validate(self)
 		Button:
@@ -47,5 +70,5 @@ WidgetsExample:
 			font_size: "20dp"
 			size_hint: 1, None
 			height: "45dp"
-
-
+			on_press: root.on_add_button_click()
+			on_release: Factory.MyPopup().open()
