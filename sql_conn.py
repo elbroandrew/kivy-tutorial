@@ -26,11 +26,11 @@ class Database():
         
     def create_table(self):
         self.c.execute('''CREATE TABLE IF NOT EXISTS websites
-          (title TEXT, url TEXT)''')
+          (title TEXT UNIQUE, url TEXT)''')
         
 
     def insert(self):
-        self.c.execute('''INSERT INTO websites (title, url) VALUES ('google', 'https://www.google.com')''')
+        self.c.execute('''INSERT OR REPLACE INTO websites (title, url) VALUES ('google', 'https://www.google.com')''')
 
 
     def fetch_all(self):
