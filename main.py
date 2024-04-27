@@ -26,6 +26,10 @@ class WidgetsExample(GridLayout):
         else:      
             widget.text = "hide answer"
             self.my_text = self.answer
+            
+    def on_text_validate(self, widget):
+        '''saves text definition to DB'''
+        pass
 
 
 

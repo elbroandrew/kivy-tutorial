@@ -1,0 +1,20 @@
+Table collocations {
+  id integer [primary key]
+  definition text
+}
+
+Table examples {
+  id integer [primary key]
+  def_id integer
+  example text
+}
+
+Table synonyms {
+  id integer [primary key]
+  def_id integer
+  synonym text [note: 'Content of the post']
+}
+
+Ref: collocations.id < examples.def_id //one-to-many
+
+Ref: collocations.id < synonyms.def_id // one-to-many

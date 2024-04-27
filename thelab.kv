@@ -4,7 +4,7 @@ WidgetsExample:
 
 <WidgetsExample>:
 	cols: 1
-	rows: 3
+	rows: 4
 
 	Label:
 		text: "definition"
@@ -31,5 +31,21 @@ WidgetsExample:
 		text: root.my_text
 		font_size: "30dp"
 		color: 1, 0.5, 1
+
+	BoxLayout:
+		orientation: "horizontal"
+		TextInput:
+			id: my_text_input
+			size_hint: None, 1
+			width: "400dp"
+			font_size: "20dp"
+			text: "Please, enter your definition"
+			multiline: True
+			on_text_validate: root.on_text_validate(self)
+		Button:
+			text: "add definition"
+			font_size: "20dp"
+			size_hint: 1, None
+			height: "45dp"
 
 
