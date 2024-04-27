@@ -12,11 +12,12 @@ class Database():
         try:
             self.conn = sqlite3.connect('data.db')
             self.c = self.conn.cursor()
+            print("CONNECTED TO DATABASE")
         except sqlite3.Error as error:
             print(error)
             
     
-    def close(self, ext_type, exc_value, traceback):
+    def close(self):
         self.c.close()
         self.conn.commit()
         self.conn.close()
