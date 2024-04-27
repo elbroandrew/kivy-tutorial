@@ -20,6 +20,7 @@ class Database():
         self.c.close()
         self.conn.commit()
         self.conn.close()
+        print("DB CLOSED")
         
         
     def create_table(self):

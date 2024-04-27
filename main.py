@@ -6,35 +6,40 @@ from sql_conn import Database
 
 
 class WidgetsExample(GridLayout):
-	answer = "text text text text text text text text text"
-	my_text = StringProperty("answer")
-	
-	db = Database()
-	db.connect()
-	db.create_table()
-	db.insert()
-
-	def on_button_click(self, toggle_button):
-		self.my_text = ''
-		toggle_button.state = "normal"
-		res = self.db.fetch_all()
-		for r in res:
-			print(r)
+    answer = "text text text text text text text text text"
+    my_text = StringProperty("answer")
+    app = None
     
-	def on_toggle_button_state(self, widget):
-		if widget.state == "normal":
-			widget.text = "show answer"
-			self.my_text = ''
-		else:      
-			widget.text = "hide answer"
-			self.my_text = self.answer
+    def on_button_click(self, toggle_button):
+        self.my_text = ''
+        toggle_button.state = "normal"
+        self.app = App.get_running_app()
+        print("MY APP: ", App.get_running_app())
+        res = self.app.db.fetch_all()
+        for r in res:
+            print(r)
+    
+    def on_toggle_button_state(self, widget):
+        if widget.state == "normal":
+            widget.text = "show answer"
+            self.my_text = ''
+        else:      
+            widget.text = "hide answer"
+            self.my_text = self.answer
 
 
 
 class TheLabApp(App):
     title = "Exercise app"
     
+    def on_start(self):
+        self.db = Database()
+        self.db.connect()
+        self.db.create_table()
+        self.db.insert()
+    
     def on_stop(self):
+        self.db.close()
         print("QUIT")
     
     
