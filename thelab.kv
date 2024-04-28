@@ -8,7 +8,7 @@ WidgetsExample:
 	title: "ADD NEW COLLOCATION"
 	GridLayout:
 		rows: 2
-		cols: 2
+		cols: 3
 		padding: 10
 		spacing: 10
 		TextInput:
@@ -24,7 +24,7 @@ WidgetsExample:
 			height: "45dp"
         	on_release: app.root.on_add_button_click()
 		Button:
-			text: "CANCEL"
+			text: "<< BACK"
 			font_size: "20dp"
 			size_hint: 1, None
 			height: "45dp"
@@ -36,7 +36,7 @@ WidgetsExample:
 	title: "UPDATE COLLOCATION"
 	GridLayout:
 		rows: 2
-		cols: 2
+		cols: 3
 		padding: 10
 		spacing: 10
 		TextInput:
@@ -46,7 +46,13 @@ WidgetsExample:
 			text: "example_1"
 			multiline: True
 		Button:
-			text: "CANCEL"
+			text: "UPDATE"
+			font_size: "20dp"
+			size_hint: 1, None
+			height: "45dp"
+        	on_release: app.root.on_update_button_click()
+		Button:
+			text: "<< BACK"
 			font_size: "20dp"
 			size_hint: 1, None
 			height: "45dp"
@@ -55,23 +61,31 @@ WidgetsExample:
 <DeletePopup@Popup>
     auto_dismiss: False
 	title: "DELETE COLLOCATION"
-	GridLayout:
-		rows: 2
-		cols: 2
+	BoxLayout:
+		orientation: "vertical"
 		padding: 10
 		spacing: 10
-		TextInput:
-			size_hint: None, 1
-			width: "200dp"
-			font_size: "20dp"
-			text: "example_1"
-			multiline: True
-		Button:
-			text: "CANCEL"
-			font_size: "20dp"
-			size_hint: 1, None
-			height: "45dp"
-        	on_release: root.dismiss()
+		BoxLayout:
+			orientation: "horizontal"			
+			TextInput:
+				size_hint: 1, 0.5
+				font_size: "20dp"
+				text: "example text"
+				multiline: True
+		BoxLayout:
+			orientation: "horizontal"
+			Button:
+				text: "DELETE"
+				font_size: "20dp"
+				size_hint: 1, None
+				height: "45dp"
+				on_release: app.root.on_delete_button_click()
+			Button:
+				text: "<< BACK"
+				font_size: "20dp"
+				size_hint: 1, None
+				height: "45dp"
+				on_release: root.dismiss()
 
 
 <WidgetsExample>:

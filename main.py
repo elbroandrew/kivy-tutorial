@@ -34,6 +34,13 @@ class WidgetsExample(GridLayout):
     
     def on_add_button_click(self):
         print("ADDED NEW COLLOCATION")
+        
+    def on_update_button_click(self):
+        pass
+    
+    def on_delete_button_click(self):
+        pass
+    
 
 
 class TheLabApp(App):
