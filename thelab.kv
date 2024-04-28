@@ -6,29 +6,33 @@ WidgetsExample:
 <AddPopup@Popup>
     auto_dismiss: False
 	title: "ADD NEW COLLOCATION"
-	GridLayout:
-		rows: 2
-		cols: 3
+	BoxLayout:
+		orientation: "vertical"
 		padding: 10
 		spacing: 10
-		TextInput:
-			size_hint: None, 1
-			width: "200dp"
-			font_size: "20dp"
-			text: "example_1"
-			multiline: True
-		Button:
-			text: "ADD"
-			font_size: "20dp"
-			size_hint: 1, None
-			height: "45dp"
-        	on_release: app.root.on_add_button_click()
-		Button:
-			text: "<< BACK"
-			font_size: "20dp"
-			size_hint: 1, None
-			height: "45dp"
-        	on_release: root.dismiss()
+		GridLayout:
+			cols: 1
+			rows: 1
+			TextInput:
+				size_hint: 1, 1
+				font_size: "20dp"
+				text: "example text"
+				multiline: True
+
+		BoxLayout:
+			orientation: "horizontal"
+			Button:
+				text: "ADD"
+				font_size: "20dp"
+				size_hint: 1, None
+				height: "45dp"
+				on_release: app.root.on_add_button_click()
+			Button:
+				text: "<< BACK"
+				font_size: "20dp"
+				size_hint: 1, None
+				height: "45dp"
+				on_release: root.dismiss()
 
 
 <UpdatePopup@Popup>
@@ -65,13 +69,15 @@ WidgetsExample:
 		orientation: "vertical"
 		padding: 10
 		spacing: 10
-		BoxLayout:
-			orientation: "horizontal"			
+		GridLayout:
+			cols: 1
+			rows: 1
 			TextInput:
-				size_hint: 1, 0.5
+				size_hint: 1, 1
 				font_size: "20dp"
 				text: "example text"
 				multiline: True
+
 		BoxLayout:
 			orientation: "horizontal"
 			Button:
