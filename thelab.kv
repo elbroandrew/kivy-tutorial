@@ -3,6 +3,18 @@
 WidgetsExample:
 
 
+<ScrollerPage>:
+	viewclass: "Button"
+	RecycleBoxLayout:
+		padding: 10
+		spacing: 5
+		default_size: None, 30
+		default_size_hint: 1, None
+		size_hint_y: None
+		height: self.minimum_height
+		orientation: "vertical"
+		background_color: app.root.oxfordBlue
+
 <AddPopup@Popup>
     auto_dismiss: False
 	title: "ADD NEW COLLOCATION"
@@ -69,14 +81,7 @@ WidgetsExample:
 		orientation: "vertical"
 		padding: 10
 		spacing: 10
-		GridLayout:
-			cols: 1
-			rows: 1
-			TextInput:
-				size_hint: 1, 1
-				font_size: "20dp"
-				text: "example text"
-				multiline: True
+		ScrollerPage:
 
 		BoxLayout:
 			orientation: "horizontal"
@@ -144,3 +149,4 @@ WidgetsExample:
 			size_hint: 1, None
 			height: "45dp"
 			on_release: Factory.DeletePopup().open()
+

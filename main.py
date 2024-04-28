@@ -2,6 +2,7 @@
 from kivy.app import App
 from kivy.properties import StringProperty
 from kivy.uix.gridlayout import GridLayout
+from  kivy.uix.recycleview import RecycleView
 from sql_conn import Database
 
 
@@ -9,7 +10,7 @@ class WidgetsExample(GridLayout):
     answer = "text text text text text text text text text"
     my_text = StringProperty("answer")
     app = None
-    
+    oxfordBlue = (22/255, 27/255, 51/255, 1)
     
     def on_button_click(self, toggle_button):
         self.my_text = ''
@@ -41,6 +42,11 @@ class WidgetsExample(GridLayout):
     def on_delete_button_click(self):
         pass
     
+    
+class ScrollerPage(RecycleView):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.data = [{"text": str(x)} for x in range(20)]
 
 
 class TheLabApp(App):
