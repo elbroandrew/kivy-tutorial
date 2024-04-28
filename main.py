@@ -3,15 +3,13 @@ from kivy.app import App
 from kivy.properties import StringProperty
 from kivy.uix.gridlayout import GridLayout
 from sql_conn import Database
-from kivy.uix.popup import Popup
-from kivy.uix.label import Label
-from kivy.uix.button import Button
 
 
 class WidgetsExample(GridLayout):
     answer = "text text text text text text text text text"
     my_text = StringProperty("answer")
     app = None
+    
     
     def on_button_click(self, toggle_button):
         self.my_text = ''
@@ -35,7 +33,7 @@ class WidgetsExample(GridLayout):
         pass
     
     def on_add_button_click(self):
-        pass
+        print("ADDED NEW COLLOCATION")
 
 
 class TheLabApp(App):
