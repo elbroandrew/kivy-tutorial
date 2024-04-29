@@ -1,8 +1,9 @@
-
 from kivy.app import App
 from kivy.properties import StringProperty
 from kivy.uix.gridlayout import GridLayout
-from  kivy.uix.recycleview import RecycleView
+from kivy.uix.recycleview import RecycleView
+from kivy.uix.button import Button
+from kivy.properties import ObjectProperty
 from sql_conn import Database
 
 
@@ -54,6 +55,28 @@ class ScrollerPage(RecycleView):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.data = [{"text": str(x)} for x in range(20)]
+        
+
+        
+class SelectScrollerPage(RecycleView):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.data = [{"text": str(x)} for x in range(20)]
+        
+    def select_item(self):
+        print("working")
+    
+        
+class SelectScrollerPageButton(Button):
+    root_widget = ObjectProperty()
+    
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+    
+    def on_release(self, **kwargs):
+        super().on_release(**kwargs)
+        self.parent.parent.select_item()
+    
 
 
 class TheLabApp(App):

@@ -15,6 +15,19 @@ WidgetsExample:
 		orientation: "vertical"
 		background_color: app.root.oxfordBlue
 
+
+<SelectScrollerPage>:
+	viewclass: "SelectScrollerPageButton"
+	RecycleBoxLayout:
+		padding: 10
+		spacing: 5
+		default_size: None, 30
+		default_size_hint: 1, None
+		size_hint_y: None
+		height: self.minimum_height
+		orientation: "vertical"
+		background_color: app.root.oxfordBlue
+
 <AddPopup@Popup>
     auto_dismiss: False
 	title: "ADD NEW COLLOCATION"
@@ -98,6 +111,24 @@ WidgetsExample:
 				height: "45dp"
 				on_release: root.dismiss()
 
+<SelectPopup@Popup>
+    auto_dismiss: False
+	title: "SELECT COLLOCATION TO UPDATE"
+	BoxLayout:
+		orientation: "vertical"
+		padding: 10
+		spacing: 10
+		SelectScrollerPage:
+
+		BoxLayout:
+			orientation: "horizontal"
+			Widget:
+			Button:
+				text: "<< BACK"
+				font_size: "20dp"
+				size_hint: 1, None
+				height: "45dp"
+				on_release: root.dismiss()
 
 <WidgetsExample>:
 	cols: 1
@@ -142,7 +173,7 @@ WidgetsExample:
 			font_size: "20dp"
 			size_hint: 1, None
 			height: "45dp"
-			on_release: Factory.UpdatePopup().open()			
+			on_release: Factory.SelectPopup().open()			
 		Button:
 			text: "delete"
 			font_size: "20dp"
