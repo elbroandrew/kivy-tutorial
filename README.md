@@ -1,1 +1,1 @@
-## Kivy tutorial
+## Kivy app for practicing english collocations.

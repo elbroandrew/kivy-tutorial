@@ -12,11 +12,14 @@ class WidgetsExample(GridLayout):
     app = None
     oxfordBlue = (22/255, 27/255, 51/255, 1)
     
+    def __init__(self, **kwargs):
+        self.app = App.get_running_app()
+        print("MY APP: ", self.app)
+        super(WidgetsExample, self).__init__(**kwargs)
+    
     def on_button_click(self, toggle_button):
         self.my_text = ''
         toggle_button.state = "normal"
-        self.app = App.get_running_app()
-        print("MY APP: ", App.get_running_app())
         res = self.app.db.fetch_all()
         for r in res:
             print(r)
@@ -37,10 +40,14 @@ class WidgetsExample(GridLayout):
         print("ADDED NEW COLLOCATION")
         
     def on_update_button_click(self):
-        pass
+        res = self.app.db.fetch_all()
+        for r in res:
+            print(r)
     
     def on_delete_button_click(self):
-        pass
+        res = self.app.db.fetch_all()
+        for r in res:
+            print(r)
     
     
 class ScrollerPage(RecycleView):
