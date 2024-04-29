@@ -61,10 +61,14 @@ class ScrollerPage(RecycleView):
 class SelectScrollerPage(RecycleView):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.data = [{"text": str(x)} for x in range(20)]
+        self.app = App.get_running_app()
+        collocations = self.app.db.fetch_all()
+        titles, definition = zip(*collocations)
+        self.data = [{"text": str(title)} for title in titles]
         
     def select_item(self):
         print("working")
+        
     
         
 class SelectScrollerPageButton(Button):

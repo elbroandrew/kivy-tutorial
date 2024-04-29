@@ -30,10 +30,13 @@ class Database():
         
 
     def insert(self):
-        self.c.execute('''INSERT OR REPLACE INTO websites (title, url) VALUES ('google', 'https://www.google.com')''')
+        self.c.execute('''INSERT OR REPLACE INTO websites (title, url) VALUES 
+                       ('google', 'https://www.google.com'),
+                       ('yandex', 'https://www.yandex.ru'),
+                       ('microsoft', 'https://www.microsoft.com')''')
 
 
-    def fetch_all(self):
+    def fetch_all(self) -> list:
         
         self.c.execute('SELECT * FROM websites')
         websites = self.c.fetchall()
